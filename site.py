@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+from marathon.scrape import get_name_matches
+from marathon.database import *
+
 app = Flask(__name__)
 
 ### DEBUG SHOULD BE OFF FOR PRODUCTION ###
@@ -10,7 +13,12 @@ def index():
     
 @app.route('/<groupname>')
 def show_grouppage(groupname):
-    return render_template('group.html', groupname=groupname)
+	runners = []
+	if groupname == "stats":
+		render_template('stats.html')
+	else:
+		runners = GetGroup(groupname)
+		return render_template('group.html', groupname=groupname, runners=runners)
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

@@ -3,8 +3,7 @@
 <div class="container">
     {% if groupname %}
 	  <h3>{{ groupname }}</h3>
-	{% endif %}
-    <BR>
+	  <BR>
     <div class="row">
         <div class="col col-lg-10 table-responsive">
         <table class="table table-striped">
@@ -38,6 +37,10 @@
 			 	</tr>
 		</table>
          </div>
+
+	{% else %}
+    	<p>Sorry, the group you are looking for does not exist! Try another URL, or create your own!</p>   
+	{% endif %}
     </div>	
 
 {% endblock %}
