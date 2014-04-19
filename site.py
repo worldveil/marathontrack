@@ -10,7 +10,7 @@ def index():
     
 @app.route('/<groupname>')
 def show_grouppage(groupname):
-    return 'Page for group %s' % groupname
+    return render_template('group.html', groupname=groupname)
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)

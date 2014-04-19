@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}		
+<div class="container">
+    {% if groupname %}
+	  <h3>{{ groupname }}</h3>
+	{% endif %}
+    <BR>
+    <div class="row">
+        <div class="col col-lg-10">
+        <table class="table table-striped">
+			 	<tr>	
+			 		<th>Bib #</th>
+			 		<th>Name</th>
+			 		<th>Gender</th>
+			 		<th>Hometown</th>
+			 		<th>Current</th>
+			 	</tr>
+			 	<tr>
+			 		<td>12744</td>
+			 		<td>Chad Redsox</td>
+			 		<td>M</td>
+			 		<td>Boston, MA</td>
+			 		<td>6 min / mile</td>
+			 	</tr>
+			 	<tr>
+			 		<td>37299</td>
+			 		<td>Janet Brewins</td>
+			 		<td>F</td>
+			 		<td>Cambridge, MA</td>
+			 		<td>5 min / mile</td>
+			 	</tr>
+			 	<tr>
+			 		<td>1223</td>
+			 		<td>Pat Triots</td>
+			 		<td>M</td>
+			 		<td>Somerville, MA</td>
+			 		<td>8 min / mile</td>
+			 	</tr>
+		</table>
+         </div>
+    </div>	
+
+{% endblock %}

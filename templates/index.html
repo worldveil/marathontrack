@@ -1,5 +1,14 @@
-<!doctype html>
-<title>Marathon Track</title>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron jumbotron-red">
+    <div class="container">
+         <h1 class="">Marathon Track</h1>
+        <p class="">Get updates about your friends as they run the 119th Annual Boston Marathon.</p>
+    </div>
+</div>
 {% if message %}
   <p>{{ message }}</p>
 {% endif %}
+
+{% endblock %}
