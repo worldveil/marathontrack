@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h2 style="margin: 20px;">Select runners for your group below.</h2>
+	{% if runners: %}
+	<div class="row">
+        <div class="col col-lg-10 table-responsive">
+        <form action="">
+	        <table class="table table-striped" style="margin: 20px;">
+				 	<tr>	
+				 		<th>Select</th>
+				 		<th>Bib #</th>
+				 		<th>Name</th>
+				 		<th>Gender</th>
+				 		<th>Hometown</th>
+				 		<th>Country</th>
+				 	</tr>
+				 	{% for runner in runners: %}
+				 	<tr id="runner_{{ runner.bib_number }}">
+				 		<td><input type="checkbox" name="runner_{{ runner.bib_number }}" value="Bike"></td>
+				 		<td>{{ runner.bib_number }}</td>
+				 		<td>{{ runner.first }} {{ runner.last }}</td>
+				 		<td>{{ runner.gender }}</td>
+				 		<td>{{ runner.city }}</td>
+				 		<td>{{ runner.country }}</td>
+				 	</tr>
+				 	{% endfor %}
+			</table>
+		</form>
+        </div>
+
+	{% else %}
+    	<p>Sorry, the group you are looking for does not exist! Try another URL, or create your own!</p>   
+	{% endif %}
+    </div>	
+
+
+{% endblock %}
