@@ -9,7 +9,7 @@ from ConfigParser import ConfigParser
 # load the database configuration
 SQL = "mysql"
 config = ConfigParser()
-config.read("marathon.cnf")
+config.read("config/marathon.cnf")
 
 def GetConnection():
 	"""
