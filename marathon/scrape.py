@@ -48,7 +48,7 @@ def get_name_matches(first, last):
 				# invalid
 				continue
 		
-			attributes["bib"] = fields[0]
+			attributes["bib_number"] = fields[0]
 			attributes["last"] = fields[1].replace(",", "")
 			attributes["first"] = fields[2]
 			

@@ -13,21 +13,17 @@ DEBUG = True
 def index():
 	return render_template('index.html', message="Start tracking your friends!")
 
-@app.route('/<groupname>', methods=["POST", "GET"])
+@app.route('/addgroup')
+def addgroup():
+	first = request.args.get("first", "")
+	last = request.args.get("last", "")
+	runners = get_name_matches(first, last)
+	return render_template('addgroup.html', runners=runners)
+
+@app.route('/groups/<groupname>', methods=["POST", "GET"])
 def show_grouppage(groupname):
-	runners = []
-	if groupname == "stats":
-		return render_template('stats.html')
-	elif groupname == "addgroup":
-		first = request.form.get("first", "")
-		last = request.form.get("last", "")
-		matches = get_name_matches(first, last)
-		return render_template('addgroup.html', matches=json.dumps(matches))
-	else:
-		first = request.form.get("first", "")
-		last = request.form.get("last", "")
-		matches = get_name_matches(first, last)
-		return render_template('api.html', matches=json.dumps(matches))
+	runners = GetGroupMembers(groupname)
+	return render_template('group.html', groupname=groupname, runners=runners)
 
 if __name__ == '__main__':
     app.run(debug=DEBUG)
