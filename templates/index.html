@@ -9,6 +9,7 @@
     </div>
 </div>
 
+<!--
 <div class="row">
 	<div class="col-lg-1 col-centered" id="buttons-div">
 		<p><a class="btn btn-primary btn-xl" role="button">Follow Runner</a></p>
@@ -25,6 +26,22 @@
 	<div class="col-lg-1 col-centered" id="buttons-div">
 		<p><a class="btn btn-primary btn-xl" role="button">Create New Group</a></p>
 	</div>
+</div>
+-->
+
+<div class="row">
+<h3 style="margin: 50px;">Search for a runner:</h3>
+	<form role="form" style="margin: 50px;" action="addgroup" method="POST">
+	  <div class="form-group">
+	    <label for="first">First name</label>
+	    <input type="text" class="form-control" name="first" id="first" placeholder="Bob">
+	  </div>
+	  <div class="form-group">
+	    <label for="last">Last name</label>
+	    <input type="text" class="form-control" name="last" id="last" placeholder="Smith">
+	  </div>
+	  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
 </div>
 
 {% endblock %}

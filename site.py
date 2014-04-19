@@ -13,11 +13,15 @@ DEBUG = True
 def index():
 	return render_template('index.html', message="Start tracking your friends!")
 
-@app.route('/addgroup')
+@app.route('/addgroup', methods=["POST", "GET"])
 def addgroup():
-	first = request.args.get("first", "")
-	last = request.args.get("last", "")
-	runners = get_name_matches(first, last)
+	runners = []
+	if request.method == "POST":
+		print request.form
+		first = request.form.get("first", "")
+		last = request.form.get("last", "")
+		print first, last
+		runners = get_name_matches(first, last)
 	return render_template('addgroup.html', runners=runners)
 
 @app.route('/groups/<groupname>', methods=["POST", "GET"])
