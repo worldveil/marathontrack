@@ -15,9 +15,9 @@ def index():
 def show_grouppage(groupname):
 	runners = []
 	if groupname == "stats":
-		render_template('stats.html')
+		return render_template('stats.html')
 	else:
-		runners = GetGroup(groupname)
+		runners = GetGroupMembers(groupname)
 		return render_template('group.html', groupname=groupname, runners=runners)
 
 if __name__ == '__main__':

@@ -49,18 +49,20 @@ def GetGroupMembers(groupname):
 	try:
 		connection = GetConnection()
 		cursor = connection.cursor()
-	except Exception as e:
-		results = cursor.execute("""
-		select g.name, r.first, r.last
+		query = """
+		select g.name, r.first, r.last, r.city, r.country, r.gender, r.bib_number
 		from groups as g
 		inner join group_membership as gm on gm.group_id = g.id
 		inner join runners as r on gm.runner_id = r.id
-		where g.name = %s
-		""", (groupname,))
+		where g.name = '%s'
+		""" % groupname # this is also bad and I feel bad
+		results = cursor.execute(query)
 		if not results:
 			return []
 		else:
 			runners = cursor.fetchall()
+	except Exception as e:
+		print e
 	finally:
 		cursor.close()
 		connection.close()
