@@ -22,4 +22,12 @@ Here's an excellent template:
 Excellent code reference:
 
 	https://github.com/commadelimited/jQuery-Mobile-Bootstrap-Theme
+
+## Bib Number Lookup
+
+Search by athlete name here:
+	http://registration.baa.org/2014/cf/RegAthleteAlert/wnd_iFindBibNumbers.cfm
+
+Looks to be a POST form submit which then returns results here:
+	http://registration.baa.org/2014/cf/RegAthleteAlert/wnd_iFindBibNumbers.cfm?mode=result
 	
