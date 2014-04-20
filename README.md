@@ -31,3 +31,7 @@ Looks to be a POST form submit which then returns results here:
 
 	http://registration.baa.org/2014/cf/RegAthleteAlert/wnd_iFindBibNumbers.cfm?mode=result
 	
+## Notes to Check on Marathon Day
+
+	Bib numbers and start times
+	
