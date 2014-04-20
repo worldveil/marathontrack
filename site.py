@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from marathon.scrape import get_name_matches
+from marathon.scrape import search_for_bibs
 from marathon.database import *
 from flask import request
 import json
@@ -21,7 +21,7 @@ def addgroup():
 		first = request.form.get("first", "")
 		last = request.form.get("last", "")
 		print first, last
-		runners = get_name_matches(first, last)
+		runners = search_for_bibs(first, last)
 	return render_template('addgroup.html', runners=runners)
 
 @app.route('/groups/<groupname>', methods=["POST", "GET"])
@@ -30,4 +30,7 @@ def show_grouppage(groupname):
 	return render_template('group.html', groupname=groupname, runners=runners)
 
 if __name__ == '__main__':
-    app.run(debug=DEBUG)
+    if DEBUG:
+    	app.run(debug=DEBUG)
+    else:
+    	app.run(debug=DEBUG, port=80, host="0.0.0.0:80")
